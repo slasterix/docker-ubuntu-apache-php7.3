@@ -20,3 +20,4 @@ RUN \
     rm -rf /var/lib/apt/lists/* && \
     apache2ctl -t && \
     mkdir -p /run /var/lib/apache2 /var/lib/php
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
