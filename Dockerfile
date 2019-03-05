@@ -1,6 +1,7 @@
 FROM slasterix/docker-ubuntu-apache:latest
 
 ARG DEBIAN_FRONTEND=noninteractive
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 RUN \
     apt-get update && \
     apt-get install -y software-properties-common && \
@@ -20,4 +21,4 @@ RUN \
     rm -rf /var/lib/apt/lists/* && \
     apache2ctl -t && \
     mkdir -p /run /var/lib/apache2 /var/lib/php
-RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
